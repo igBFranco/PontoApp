@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		532DF6BD2CBCA8DC0056E05A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DF6BC2CBCA8DC0056E05A /* RecordView.swift */; };
+		534920EA2C9E374F00FD5CE3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 534920E92C9E374F00FD5CE3 /* FirebaseAnalytics */; };
+		534920EC2C9E374F00FD5CE3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 534920EB2C9E374F00FD5CE3 /* FirebaseAuth */; };
+		534920EE2C9E374F00FD5CE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 534920ED2C9E374F00FD5CE3 /* FirebaseDatabase */; };
+		534920F02C9E374F00FD5CE3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 534920EF2C9E374F00FD5CE3 /* FirebaseFirestore */; };
+		534920F22C9E374F00FD5CE3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 534920F12C9E374F00FD5CE3 /* FirebaseStorage */; };
+		534920F42C9E381300FD5CE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */; };
+		534920F62C9E393100FD5CE3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534920F52C9E393100FD5CE3 /* LoginView.swift */; };
+		534920F92C9E3A1700FD5CE3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534920F82C9E3A1700FD5CE3 /* LocationManager.swift */; };
+		53AAAF202CB5AB870088D130 /* PunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AAAF1F2CB5AB870088D130 /* PunchDetailView.swift */; };
 		53E968F02C9E30970018CAA6 /* PontoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E968EF2C9E30970018CAA6 /* PontoAppApp.swift */; };
 		53E968F22C9E30970018CAA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E968F12C9E30970018CAA6 /* ContentView.swift */; };
 		53E968F42C9E30990018CAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53E968F32C9E30990018CAA6 /* Assets.xcassets */; };
@@ -34,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		532DF6BC2CBCA8DC0056E05A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		534920F52C9E393100FD5CE3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		534920F72C9E39BE00FD5CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		534920F82C9E3A1700FD5CE3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		53AAAF1F2CB5AB870088D130 /* PunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchDetailView.swift; sourceTree = "<group>"; };
 		53E968EC2C9E30970018CAA6 /* PontoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PontoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E968EF2C9E30970018CAA6 /* PontoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoAppApp.swift; sourceTree = "<group>"; };
 		53E968F12C9E30970018CAA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +67,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534920EE2C9E374F00FD5CE3 /* FirebaseDatabase in Frameworks */,
+				534920F02C9E374F00FD5CE3 /* FirebaseFirestore in Frameworks */,
+				534920EA2C9E374F00FD5CE3 /* FirebaseAnalytics in Frameworks */,
+				534920F22C9E374F00FD5CE3 /* FirebaseStorage in Frameworks */,
+				534920EC2C9E374F00FD5CE3 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +115,16 @@
 		53E968EE2C9E30970018CAA6 /* PontoApp */ = {
 			isa = PBXGroup;
 			children = (
+				534920F72C9E39BE00FD5CE3 /* Info.plist */,
 				53E968EF2C9E30970018CAA6 /* PontoAppApp.swift */,
+				534920F82C9E3A1700FD5CE3 /* LocationManager.swift */,
 				53E968F12C9E30970018CAA6 /* ContentView.swift */,
+				534920F52C9E393100FD5CE3 /* LoginView.swift */,
 				53E968F32C9E30990018CAA6 /* Assets.xcassets */,
+				534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */,
 				53E968F52C9E30990018CAA6 /* Preview Content */,
+				53AAAF1F2CB5AB870088D130 /* PunchDetailView.swift */,
+				532DF6BC2CBCA8DC0056E05A /* RecordView.swift */,
 			);
 			path = PontoApp;
 			sourceTree = "<group>";
@@ -143,6 +170,13 @@
 			dependencies = (
 			);
 			name = PontoApp;
+			packageProductDependencies = (
+				534920E92C9E374F00FD5CE3 /* FirebaseAnalytics */,
+				534920EB2C9E374F00FD5CE3 /* FirebaseAuth */,
+				534920ED2C9E374F00FD5CE3 /* FirebaseDatabase */,
+				534920EF2C9E374F00FD5CE3 /* FirebaseFirestore */,
+				534920F12C9E374F00FD5CE3 /* FirebaseStorage */,
+			);
 			productName = PontoApp;
 			productReference = 53E968EC2C9E30970018CAA6 /* PontoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 53E968E32C9E30970018CAA6;
+			packageReferences = (
+				534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 53E968ED2C9E30970018CAA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +270,7 @@
 			files = (
 				53E968F72C9E30990018CAA6 /* Preview Assets.xcassets in Resources */,
 				53E968F42C9E30990018CAA6 /* Assets.xcassets in Resources */,
+				534920F42C9E381300FD5CE3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534920F92C9E3A1700FD5CE3 /* LocationManager.swift in Sources */,
+				534920F62C9E393100FD5CE3 /* LoginView.swift in Sources */,
+				53AAAF202CB5AB870088D130 /* PunchDetailView.swift in Sources */,
 				53E968F22C9E30970018CAA6 /* ContentView.swift in Sources */,
+				532DF6BD2CBCA8DC0056E05A /* RecordView.swift in Sources */,
 				53E968F02C9E30970018CAA6 /* PontoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,12 +461,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PontoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = BAFB3SW982;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PontoApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to track your time";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,6 +482,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = igorbfranco.PontoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,12 +494,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PontoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = BAFB3SW982;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PontoApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to track your time";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -466,6 +515,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = igorbfranco.PontoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,6 +638,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		534920E92C9E374F00FD5CE3 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		534920EB2C9E374F00FD5CE3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		534920ED2C9E374F00FD5CE3 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		534920EF2C9E374F00FD5CE3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		534920F12C9E374F00FD5CE3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534920E82C9E374F00FD5CE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53E968E42C9E30970018CAA6 /* Project object */;
 }

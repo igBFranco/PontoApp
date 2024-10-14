@@ -8,11 +8,78 @@
 import SwiftUI
 
 struct RecordView: View {
+    @ObservedObject var viewModel: PunchViewModel
+
+    var groupedRecords: [String: [PunchRecord]] {
+        groupPunchRecords(viewModel.punchRecords)
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(alignment: .leading) {
+                List {
+                    ForEach(groupedRecords.keys.sorted(), id: \.self) { date in
+                        Section(header: Text(date).font(.headline)) {
+                            ForEach(groupedRecords[date] ?? []) { record in
+                                NavigationLink(destination: PunchDetailView(viewModel: viewModel, punchRecord: record)) {
+                                    RecordRow(record: record)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .toolbar{
+            ToolbarItem(placement: .principal){
+                Text("Marcações")
+                    .font(.headline)
+            }
+        }
+    }
+
+    func groupPunchRecords(_ records: [PunchRecord]) -> [String: [PunchRecord]] {
+        Dictionary(grouping: records) { record in
+            onlyDateFormatter.string(from: record.timestamp)
+        }
     }
 }
 
-#Preview {
-    RecordView()
+struct RecordRow: View {
+    var record: PunchRecord
+
+    var body: some View {
+        HStack() {
+            Text("\(record.timestamp, formatter: dateFormatter)")
+            Spacer()
+            if record.isEdited {
+                Text("E")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 28, height: 28)
+                    .background(Color.orange)
+                    .cornerRadius(5)
+            } else {
+                Text("O")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 28, height: 28)
+                    .background(Color.blue)
+                    .cornerRadius(5)
+            }
+        }
+    }
 }
+
+private let onlyDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy"
+    return formatter
+}()
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    formatter.locale = Locale(identifier: "pt_BR")
+    return formatter
+}()
