@@ -125,12 +125,12 @@
 				53E968F12C9E30970018CAA6 /* ContentView.swift */,
 				532DF6C02CBD92FC0056E05A /* SettingsView.swift */,
 				534920F52C9E393100FD5CE3 /* LoginView.swift */,
-				53E968F32C9E30990018CAA6 /* Assets.xcassets */,
-				534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */,
-				53E968F52C9E30990018CAA6 /* Preview Content */,
 				53AAAF1F2CB5AB870088D130 /* PunchDetailView.swift */,
 				532DF6BC2CBCA8DC0056E05A /* RecordView.swift */,
 				532DF6BE2CBD640E0056E05A /* ColorExtensions.swift */,
+				53E968F32C9E30990018CAA6 /* Assets.xcassets */,
+				534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */,
+				53E968F52C9E30990018CAA6 /* Preview Content */,
 			);
 			path = PontoApp;
 			sourceTree = "<group>";

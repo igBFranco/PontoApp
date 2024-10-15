@@ -29,10 +29,11 @@ struct RecordView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Image(uiImage: UIImage(named: "Icon") ?? UIImage())
+                    Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .cornerRadius(8)
                     Text("PontoApp")
                         .font(.title2)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)

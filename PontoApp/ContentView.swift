@@ -32,7 +32,7 @@ class PunchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             .limit(to: 10)
             .getDocuments { snapshot, error in
                 if let error = error {
-                    print("Error fetching records: \(error)")
+                    print("Erro ao buscar registros: \(error)")
                     return
                 }
                 
@@ -76,9 +76,9 @@ class PunchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             db.collection("punchRecords").addDocument(data: punchRecord) { error in
                 if let error = error {
-                    print("Error adding punch record: \(error)")
+                    print("Erro ao salvar os dados: \(error)")
                 } else {
-                    print("Punch record added successfully")
+                    print("Dados registardos com sucesso")
                     self.fetchPunchRecords()
                 }
             }
@@ -86,7 +86,7 @@ class PunchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to get location: \(error.localizedDescription)")
+        print("Erro ao solicitar permissao de localização: \(error.localizedDescription)")
     }
 }
 
@@ -131,10 +131,11 @@ struct PunchView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Image(uiImage: UIImage(named: "Icon") ?? UIImage())
+                    Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .cornerRadius(8)
                     Text("PontoApp")
                         .font(.title2)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)

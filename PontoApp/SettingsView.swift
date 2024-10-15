@@ -19,82 +19,84 @@ struct SettingsView: View {
 
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Text("Configurações")
-                .font(.title)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                .padding(.bottom, 20)
-            
-            Group {
-                Text("Nome Completo:")
-                    .font(.headline)
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Configurações")
+                    .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Text("\(fullName)")
-                Text("Matrícula:")
-                    .font(.headline)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Text("\(registrationNumber)")
-                Text("Email:")
-                    .font(.headline)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Text("\(email)")
-            }
-            .font(.title2)
-            
-            Spacer()
-            
-            Button(action: {
-                showingLogoutAlert = true
-            }) {
-                Text("Logout")
-                    .font(.title2)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .alert(isPresented: $showingLogoutAlert) {
-                Alert(
-                    title: Text("Logout"),
-                    message: Text("Deseja realmente sair?"),
-                    primaryButton: .destructive(Text("Confirmar")) {
-                        logout()
-                    },
-                    secondaryButton: .cancel(Text("Cancelar"))
-                )
-            }
-            
-        }
-        .padding()
-        .onAppear {
-            fetchUserData()
-        }
-        .fullScreenCover(isPresented: $isUserLoggedOut, content: {
-            LoginView()
-        })
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Image(uiImage: UIImage(named: "Icon") ?? UIImage())
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                    Text("PontoApp")
-                        .font(.title2)
+                    .padding(.bottom, 20)
+                
+                Group {
+                    Text("Nome Completo:")
+                        .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .padding(4)
-                    Spacer()
-                    Button(action: {
-                        
-                    }) {
-                        Image(systemName: "info.circle")
-                            .padding(8)
-                            .foregroundColor(Color(primaryColor))
-                            .cornerRadius(8)
-                    }
+                    Text("\(fullName)")
+                    Text("Matrícula:")
+                        .font(.headline)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Text("\(registrationNumber)")
+                    Text("Email:")
+                        .font(.headline)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Text("\(email)")
                 }
-                .frame(maxWidth: .infinity)
+                .font(.title2)
+                
+                Spacer()
+                
+                Button(action: {
+                    showingLogoutAlert = true
+                }) {
+                    Text("Logout")
+                        .font(.title2)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .alert(isPresented: $showingLogoutAlert) {
+                    Alert(
+                        title: Text("Logout"),
+                        message: Text("Deseja realmente sair?"),
+                        primaryButton: .destructive(Text("Confirmar")) {
+                            logout()
+                        },
+                        secondaryButton: .cancel(Text("Cancelar"))
+                    )
+                }
+                
+            }
+            .padding()
+            .onAppear {
+                fetchUserData()
+            }
+            .fullScreenCover(isPresented: $isUserLoggedOut, content: {
+                LoginView()
+            })
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 35, height: 35)
+                            .cornerRadius(8)
+                        Text("PontoApp")
+                            .font(.title2)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .padding(4)
+                        Spacer()
+                        NavigationLink(destination: InfoView()){
+                            Image(systemName: "info.circle")
+                                .padding(8)
+                                .foregroundColor(Color(primaryColor))
+                                .cornerRadius(8)
+                            
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                }
             }
         }
     }
@@ -123,6 +125,18 @@ struct SettingsView: View {
             isUserLoggedOut = true
         } catch let signOutError as NSError {
             print("Erro ao fazer logout: \(signOutError)")
+        }
+    }
+}
+
+struct InfoView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Aplicativo criado utilizando SwiftUI, por Igor Bueno Franco na Disciplina de Desenvolvimento de Aplicativos iOS").padding(20).multilineTextAlignment(.center)
+                Text("PUCPR").padding(20).fontWeight(Font.Weight.bold)
+                Text("2024")
+            }.navigationTitle("Informações")
         }
     }
 }

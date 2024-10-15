@@ -43,7 +43,7 @@ struct LoginView: View {
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
-                .background(Color(uiColor: .white))
+                .background(Color(UIColor.systemBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color(primaryColor), lineWidth: 2)
@@ -69,7 +69,7 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
-                .background(Color(uiColor: .white))
+                .background(Color(UIColor.systemBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color(primaryColor), lineWidth: 2)
@@ -77,8 +77,8 @@ struct LoginView: View {
                 .cornerRadius(8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .alert(isPresented: $showForgotPasswordAlert) {
-                    Alert(title: Text("Password Reset"),
-                          message: Text("A password reset link has been sent to \(email)."),
+                    Alert(title: Text("Resetar Senha"),
+                          message: Text("Um link de reset de senha foi encaminhado para o endereço \(email)."),
                           dismissButton: .default(Text("OK")))
                 }
             }
@@ -131,7 +131,7 @@ struct LoginView: View {
     
     func forgotPassword() {
             guard !email.isEmpty else {
-                errorMessage = "Please enter your email."
+                errorMessage = "Digite o email para poder enviar o link de recuperação."
                 return
             }
             
@@ -172,7 +172,7 @@ struct RegisterView: View {
                 TextField("Digite seu nome completo", text: $fullName)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
-                    .background(Color(uiColor: .white))
+                    .background(Color(UIColor.systemBackground))
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(primaryColor), lineWidth: 2)
@@ -186,7 +186,7 @@ struct RegisterView: View {
                 TextField("Digite seu número de matrícula", text: $registrationNumber)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
-                    .background(Color(uiColor: .white))
+                    .background(Color(UIColor.systemBackground))
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(primaryColor), lineWidth: 2)
@@ -201,7 +201,7 @@ struct RegisterView: View {
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(Color(uiColor: .white))
+                    .background(Color(UIColor.systemBackground))
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(primaryColor), lineWidth: 2)
@@ -217,7 +217,7 @@ struct RegisterView: View {
                     .foregroundColor(.secondary)
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
-                .background(Color(uiColor: .white))
+                .background(Color(UIColor.systemBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color(primaryColor), lineWidth: 2)
@@ -235,7 +235,7 @@ struct RegisterView: View {
                 
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
-                .background(Color(uiColor: .white))
+                .background(Color(UIColor.systemBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color(primaryColor), lineWidth: 2)
@@ -267,7 +267,7 @@ struct RegisterView: View {
     
     func registerUser() {
         guard password == confirmPassword else {
-            errorMessage = "Passwords do not match."
+            errorMessage = "As senhas não conferem!"
             return
         }
         
@@ -275,7 +275,7 @@ struct RegisterView: View {
             if let error = error {
                 errorMessage = error.localizedDescription
             } else {
-                errorMessage = "Registration successful!"
+                errorMessage = "Registrado com sucesso"
                 guard let user = result?.user else { return }
                 saveUserInfo(userID: user.uid)
                 presentationMode.wrappedValue.dismiss()
