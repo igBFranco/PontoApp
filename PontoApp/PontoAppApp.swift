@@ -20,6 +20,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct PontoAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    init() {
+        UITabBar.appearance().tintColor = UIColor(Color(hex: "5300FF"))
+        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+    }
     var body: some Scene {
         WindowGroup {
             LoginView()

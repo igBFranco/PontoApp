@@ -22,6 +22,8 @@ struct PunchDetailView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     
+    @Environment(\.presentationMode) var presentationMode
+    
 
     var body: some View {
         ScrollView {
@@ -78,6 +80,7 @@ struct PunchDetailView: View {
         }
         .onAppear {
             editedDate = punchRecord.timestamp
+            viewModel.fetchPunchRecords()
         }
         .padding()
     }
@@ -101,6 +104,11 @@ struct PunchDetailView: View {
             } else {
                 print("Registro editado com sucesso.")
                 viewModel.fetchPunchRecords()
+                if let index = viewModel.punchRecords.firstIndex(where: { $0.id == punchRecord.id }) {
+                    viewModel.punchRecords[index].timestamp = editedDate
+                    viewModel.punchRecords[index].isEdited = true
+                }
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }

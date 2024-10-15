@@ -7,6 +7,8 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
+
 
 struct LoginView: View {
     @State private var email = ""
@@ -16,8 +18,16 @@ struct LoginView: View {
     @State private var showRegisterView = false
     @State private var showForgotPasswordAlert = false
     
+    let primaryColor = Color(hex: "5300FF")
+    
+    
     var body: some View {
         VStack {
+            Image(uiImage: UIImage(named: "Icon") ?? UIImage())
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .padding(.bottom)
             Text("PontoApp")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.largeTitle)
@@ -36,7 +46,7 @@ struct LoginView: View {
                 .background(Color(uiColor: .white))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(.systemBlue), lineWidth: 2)
+                        .stroke(Color(primaryColor), lineWidth: 2)
                 )
                 .cornerRadius(8)
                 .padding(.bottom)
@@ -47,6 +57,7 @@ struct LoginView: View {
                         .foregroundColor(.primary)
                     Button(action: {forgotPassword()}, label: {
                         Text("Recuperar Senha")
+                            .foregroundStyle(primaryColor)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -61,7 +72,7 @@ struct LoginView: View {
                 .background(Color(uiColor: .white))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(.systemBlue), lineWidth: 2)
+                        .stroke(Color(primaryColor), lineWidth: 2)
                 )
                 .cornerRadius(8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -79,7 +90,7 @@ struct LoginView: View {
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(Color(.systemBlue))
+                    .background(Color(primaryColor))
                     .cornerRadius(8)
             })
             .padding(.bottom, 8)
@@ -92,6 +103,7 @@ struct LoginView: View {
                     .foregroundColor(.secondary)
                 Button(action: {showRegisterView = true}, label: {
                     Text("Registrar")
+                        .foregroundStyle(primaryColor)
                 })
 
                 .sheet(isPresented: $showRegisterView) {
@@ -137,8 +149,12 @@ struct RegisterView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @State private var fullName = ""
+    @State private var registrationNumber = ""
     @State private var errorMessage: String?
     @Environment(\.presentationMode) var presentationMode
+    
+    let primaryColor = Color(hex: "5300FF")
 
     var body: some View {
         ScrollView {
@@ -149,6 +165,33 @@ struct RegisterView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(.top)
+                    .padding(.bottom)
+                Text("Nome Completo")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.primary)
+                TextField("Digite seu nome completo", text: $fullName)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color(uiColor: .white))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(primaryColor), lineWidth: 2)
+                    )
+                    .cornerRadius(8)
+                    .padding(.bottom)
+                
+                Text("Número de Matrícula")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.primary)
+                TextField("Digite seu número de matrícula", text: $registrationNumber)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color(uiColor: .white))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(primaryColor), lineWidth: 2)
+                    )
+                    .cornerRadius(8)
                     .padding(.bottom)
                 Text("E-mail")
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -161,7 +204,7 @@ struct RegisterView: View {
                     .background(Color(uiColor: .white))
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(.systemBlue), lineWidth: 2)
+                            .stroke(Color(primaryColor), lineWidth: 2)
                     )
                     .cornerRadius(8)
                     .padding(.bottom)
@@ -177,7 +220,7 @@ struct RegisterView: View {
                 .background(Color(uiColor: .white))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(.systemBlue), lineWidth: 2)
+                        .stroke(Color(primaryColor), lineWidth: 2)
                 )
                 .cornerRadius(8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -195,7 +238,7 @@ struct RegisterView: View {
                 .background(Color(uiColor: .white))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(.systemBlue), lineWidth: 2)
+                        .stroke(Color(primaryColor), lineWidth: 2)
                 )
                 .cornerRadius(8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -205,13 +248,14 @@ struct RegisterView: View {
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 45)
-                        .background(Color(.systemBlue))
+                        .background(Color(primaryColor))
                         .cornerRadius(8)
                 })
                 .padding(.top, 16)
-                Button("Cancelar") {
-                    presentationMode.wrappedValue.dismiss()
-                }.padding()
+                Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                    Text("Cancelar")
+                        .foregroundStyle(primaryColor)
+                }).padding()
 
                 if let errorMessage = errorMessage {
                     Text(errorMessage).foregroundColor(.red)
@@ -232,11 +276,31 @@ struct RegisterView: View {
                 errorMessage = error.localizedDescription
             } else {
                 errorMessage = "Registration successful!"
+                guard let user = result?.user else { return }
+                saveUserInfo(userID: user.uid)
                 presentationMode.wrappedValue.dismiss()
 
             }
         }
     }
+    
+    func saveUserInfo(userID: String) {
+            let db = Firestore.firestore()
+            let userData: [String: Any] = [
+                "fullName": fullName,
+                "registrationNumber": registrationNumber,
+                "email": email,
+                "userID": userID
+            ]
+            
+            db.collection("users").document(userID).setData(userData) { error in
+                if let error = error {
+                    print("Erro ao salvar informações do usuário: \(error.localizedDescription)")
+                } else {
+                    print("Informações do usuário salvas com sucesso.")
+                }
+            }
+        }
 }
 
 #Preview {

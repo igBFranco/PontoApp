@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		532DF6BD2CBCA8DC0056E05A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DF6BC2CBCA8DC0056E05A /* RecordView.swift */; };
+		532DF6BF2CBD640E0056E05A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DF6BE2CBD640E0056E05A /* ColorExtensions.swift */; };
+		532DF6C12CBD92FC0056E05A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DF6C02CBD92FC0056E05A /* SettingsView.swift */; };
 		534920EA2C9E374F00FD5CE3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 534920E92C9E374F00FD5CE3 /* FirebaseAnalytics */; };
 		534920EC2C9E374F00FD5CE3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 534920EB2C9E374F00FD5CE3 /* FirebaseAuth */; };
 		534920EE2C9E374F00FD5CE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 534920ED2C9E374F00FD5CE3 /* FirebaseDatabase */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		532DF6BC2CBCA8DC0056E05A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		532DF6BE2CBD640E0056E05A /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		532DF6C02CBD92FC0056E05A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		534920F52C9E393100FD5CE3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		534920F72C9E39BE00FD5CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -119,12 +123,14 @@
 				53E968EF2C9E30970018CAA6 /* PontoAppApp.swift */,
 				534920F82C9E3A1700FD5CE3 /* LocationManager.swift */,
 				53E968F12C9E30970018CAA6 /* ContentView.swift */,
+				532DF6C02CBD92FC0056E05A /* SettingsView.swift */,
 				534920F52C9E393100FD5CE3 /* LoginView.swift */,
 				53E968F32C9E30990018CAA6 /* Assets.xcassets */,
 				534920F32C9E381300FD5CE3 /* GoogleService-Info.plist */,
 				53E968F52C9E30990018CAA6 /* Preview Content */,
 				53AAAF1F2CB5AB870088D130 /* PunchDetailView.swift */,
 				532DF6BC2CBCA8DC0056E05A /* RecordView.swift */,
+				532DF6BE2CBD640E0056E05A /* ColorExtensions.swift */,
 			);
 			path = PontoApp;
 			sourceTree = "<group>";
@@ -296,11 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				534920F92C9E3A1700FD5CE3 /* LocationManager.swift in Sources */,
+				532DF6C12CBD92FC0056E05A /* SettingsView.swift in Sources */,
 				534920F62C9E393100FD5CE3 /* LoginView.swift in Sources */,
 				53AAAF202CB5AB870088D130 /* PunchDetailView.swift in Sources */,
 				53E968F22C9E30970018CAA6 /* ContentView.swift in Sources */,
 				532DF6BD2CBCA8DC0056E05A /* RecordView.swift in Sources */,
 				53E968F02C9E30970018CAA6 /* PontoAppApp.swift in Sources */,
+				532DF6BF2CBD640E0056E05A /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

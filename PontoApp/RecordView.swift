@@ -15,25 +15,31 @@ struct RecordView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                List {
-                    ForEach(groupedRecords.keys.sorted(), id: \.self) { date in
-                        Section(header: Text(date).font(.headline)) {
-                            ForEach(groupedRecords[date] ?? []) { record in
-                                NavigationLink(destination: PunchDetailView(viewModel: viewModel, punchRecord: record)) {
-                                    RecordRow(record: record)
-                                }
+            List {
+                ForEach(groupedRecords.keys.sorted(), id: \.self) { date in
+                    Section(header: Text(date).font(.headline)) {
+                        ForEach(groupedRecords[date] ?? []) { record in
+                            NavigationLink(destination: PunchDetailView(viewModel: viewModel, punchRecord: record)) {
+                                RecordRow(record: record)
                             }
                         }
                     }
                 }
-            }
         }
-        .toolbar{
-            ToolbarItem(placement: .principal){
-                Text("Marcações")
-                    .font(.headline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Image(uiImage: UIImage(named: "Icon") ?? UIImage())
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                    Text("PontoApp")
+                        .font(.title2)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .padding(4)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
             }
         }
     }
